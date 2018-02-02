@@ -36,3 +36,9 @@ Here are some sample requests. Change the datetime on the request accordingly.
  `curl -i -X POST http://localhost:24224/fmp.event -d 'json={"name": "mike", "colour": "purple", "timestamp": "2018-02-02T15:55:07", "id": "parent", "parent_id": null, "action": "finish"}'`
 
 Navigate to Jaeger on http://localhost:16686/search and search for traces. Hopefully you should find a trace that has 2 spans, each of which have log entries.
+
+## Some issues
+
+* fluentd appears to silently do nothing if the JSON passed to it is invalid.
+
+* Ruby Jaeger client does not support baggage items
