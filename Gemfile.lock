@@ -1,0 +1,17 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    jaeger-client (0.4.1)
+      opentracing (~> 0.3)
+      thrift
+    opentracing (0.3.2)
+    thrift (0.11.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  jaeger-client
+
+BUNDLED WITH
+   1.15.1
