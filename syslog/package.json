@@ -1,0 +1,21 @@
+{
+  "name": "syslog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^3.1.0",
+    "rconsole": "^0.3.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "syslog-client": "^1.1.1",
+    "syslog-server": "^1.0.1",
+    "syslogudp": "0.0.5"
+  }
+}
