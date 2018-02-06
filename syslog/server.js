@@ -7,17 +7,18 @@ Syslogd(message => {
   const json = JSON.stringify({
     text: message.msg,
     time: message.time,
-    level: message.severity
+    level: message.severity,
   });
 
   return request({
     method: 'POST',
     uri: `http://10.0.2.15:24224/${message.appname}.log`,
     formData: {
-      json
-    }
+      json,
+    },
   });
-}).listen(5144, function(err) {
+})
+  .listen(5144, (err) => {
     console.log('starting syslogd');
     console.log('Error? ', err);
-});
+  });

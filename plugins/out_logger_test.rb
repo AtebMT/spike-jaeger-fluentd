@@ -4,9 +4,8 @@ module Fluent::Plugin
   class LoggerTest < Output
     Fluent::Plugin.register_output('logger_test', self)
 
-
     # method for non-buffered output mode
-    def process(tag, es)
+    def process(_tag, es)
       es.each do |time, record|
         puts "#{time}: #{record}"
       end
