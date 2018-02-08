@@ -46,6 +46,16 @@ Navigate to Jaeger on http://localhost:16686/search and search for traces. Hopef
  ```
 * Hit Flipper (or whatever) service. Any stdout from the service should appear in fluentd.
 
+All Flipper is doing is sending to stdout JSON strings like this:
+
+```
+{"spanKind": "server", "httpUrl": "http://localhost:3045/api/fmp/production?trackingId=-1&anonymous=false", "httpMethod": "GET", "timestamp": "2018-02-07T16:59:56.742Z", "action": "finish", "parent_id": nil, "id": "a3f4377f-91dc-a8b7-a41f-0530ee3070f0", "type": "trace", "process_name": "express", "duration": 6027}
+```
+
+```
+{"spanKind":"client","httpUrl":"http://integration.antracks.service.consul:3333/api/data_layer/0?useCache=true","httpMethod":"GET","timestamp":"2018-02-07T16:59:56.045Z","action":"finish","parent_id":"a3f4377f-91dc-a8b7-a41f-0530ee3070f0","id":"5ec3b3e5-33a1-4957-770b-78290923b352","type":"trace","process_name":"http_request","duration":132,"statusCode":200}
+```
+
 ## Some issues
 
 * fluentd appears to silently do nothing if the JSON passed to it is invalid.
