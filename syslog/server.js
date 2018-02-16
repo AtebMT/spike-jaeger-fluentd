@@ -7,7 +7,7 @@ Syslogd(message => {
   let json = JSON.stringify({
     text: message.msg,
     time: message.time,
-    level: message.severity
+    level: message.severity,
   });
 
   let endpoint = `${message.appname}.log`;
@@ -25,10 +25,11 @@ Syslogd(message => {
     method: 'POST',
     uri: `http://10.0.2.15:24224/${endpoint}`,
     formData: {
-      json
-    }
+      json,
+    },
   });
-}).listen(5144, function(err) {
+})
+  .listen(5144, (err) => {
     console.log('starting syslogd');
     console.log('Error? ', err);
-});
+  });
